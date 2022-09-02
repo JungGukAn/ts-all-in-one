@@ -19,6 +19,7 @@
 - typescript는 언어이자 컴파일러(tsc)이다. 컴파일러는 ts 코드를 js로 바꿔준다.
 - tsc는 tsconfig.json(tsc --init 시 생성)에 따라 ts 코드를 js(tsc 시 생성)로 바꿔준다. 인풋인 ts와 아웃풋인 js 모두에 영향을 끼치므로 tsconfig.json 설정을 반드시 봐야한다.
 - 단순히 타입 검사만 하고싶다면 tsc --noEmit 하면 된다.
+- 타입 검사가 실패하더라도 코드 변환은 될 수 있다. 따라서, 반드시 타입 검사가 성공한 코드만 변환시키도록 한다. 
 - 개인 의견: tsconfig.json에서 그냥 esModuleInterop: true, strict: true 두 개만 주로 켜놓는 편. strict: true가 핵심임.
 - ts 파일을 실행하는 게 아니라 결과물인 js를 실행해야 한다.
 - 에디터가 필수가 됨. VS Code나 웹스톰 반드시 필요. 메모장으로 코딩 불가능한 지경에 이름.
