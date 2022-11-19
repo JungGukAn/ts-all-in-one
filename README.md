@@ -29,21 +29,10 @@
     - 옵션을 사용하는 경우, d.ts 모든 타입을 체크하는 것이 아닌 app에서 참조하는 것만 검사
     - 서로 다른 라이브러리가 같은 타입을 정의한 경우, 문제가 생기는 것을 해결해 준다
  - esModuleInterop
-    - 옵션값이 false 인 경우, Esm(ES6 modules)이 아닌 다른 모듈 시스템들은 아래와 같이 처리된다.
-    ```js
-    // a namespace import
-    import * as moment from "moment"
-    const moment = require("moment");
-
-    // a default import
-    import moment from "moment"
-    const moment = require("moment").default;
-    ```
-    - 위와 같이 처리하는 것의 문제점
-      - Esm 명세에는 namespace import는 object만 가능하지만, require("")로 대체하면 함수등이 import 되는 것이 가능하다.
-      - 다른 모듈 시스템에서 export시 `default` property를 구현해놓은 경우는 거의 없으므로 default import를 사용할 수 없다.
-
-    - 옵션값이 true 인 경우, 위의 문제점을 해결하고 Esm과 호환시키기 위한 helper methods가 생성되고 추가 처리를 한다.
+    - 옵션값이 false 인 경우
+      - `export = ` 사용 시, `import module = require("module")` 만 사용 가능.
+    - 옵션값이 true 인 경우
+      - `export = ` 사용 시, default import `import module from "module"` 가능
 
 ## ts 문법
 - 기본적으로 변수, 속성, 매개변수, 리턴값에 타입이 붙었다고 생각하면 됨.
